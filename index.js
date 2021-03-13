@@ -1,5 +1,6 @@
 var cool = require("cool-ascii-faces");
 var express = require("express");
+var serveIndex = require('serve-index');
 var app = express();
 
 var port = 11337;
@@ -14,6 +15,10 @@ function hehe() {
 	return res;
 }
 
+/* La carpeta public estará disponible en /public */
+app.use('/public', serveIndex('public')); // shows you the file list
+app.use('/public', express.static('public')); // serve the actual files
+/*----------------------------------------------- */
 
 app.get("/",(request, response) => {
 	response.send("<h1>Welcome to SOS2021-23</h1><br>" + cool());
