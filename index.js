@@ -1,4 +1,5 @@
 var cool = require("cool-ascii-faces");
+var serveIndex = require('serve-index');
 var express = require("express");
 var app = express();
 
