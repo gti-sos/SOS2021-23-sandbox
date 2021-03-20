@@ -4,7 +4,7 @@ var serveIndex = require('serve-index');
 // var path = require("path");
 var app = express();
 
-var port = 11337;
+var port = process.env.PORT || 11337;
 
 function hehe() {
 	var res = "<h3> Welcome to /cool, an exclusive lounge for cool! people </h3><br><p> These are the faces of our coolest members </p><br>";
