@@ -27,14 +27,19 @@ app.get('/info/mh-stats', (req, res) => {
 	console.log("New GET request to /info/mh-stats has arrived");
 })
 
-app.get('/hello', (req, res) => {
-	res.send("<html><body><h1> Hello! From tiny express server!</h1></body></html>");
-	console.log("New GET request to /hello has arrived");
+app.get('/info/unemployment-stats', (req, res) => {
+	res.send("<html><head><link rel='stylesheet' type='text/css' href='/css/mh-stats.css'/></head><body><p>(A.C.E) Source: <a href='https://knoema.es/blizore/unemployment-rate-by-country-2019-data-and-charts'>Source 1</a> <a href='https://www.gfmag.com/global-data/economic-data/worlds-unemployment-ratescom'>Source 2</a> <a href='https://photius.com/rankings/2019/economy/unemployment_rate_2019_image.html'>Source 3</a> </p><table class='tableizer-table'><thead><tr class='tableizer-firstrow'><th>country</th><th>year</th><th>kno-perc</th><th>int-perc</th><th>gf-perc</th></tr></thead><tbody><tr><td>Canada</td><td>2020</td><td>5.4</td><td>5.6</td><td>9.7</td></tr><tr><td>United States</td><td>2020</td><td>3.9</td><td>4.4</td><td>8.8</td></tr><tr><td>United Kingdom</td><td>2020</td><td>4.1</td><td>3.9</td><td>5.3</td></tr><tr><td>Germany</td><td>2020</td><td>3</td><td>3.2</td><td>4.2</td></tr><tr><td>Japan</td><td>2020</td><td>2.3</td><td>2.4</td><td>3.3</td></tr><tr><td>Spain</td><td>2020</td><td>13</td><td>13.6</td><td>16.8</td></tr><tr><td>Brazil</td><td>2020</td><td>12</td><td>11.6</td><td>13.3</td></tr></tbody></table> </body></html>");
+	console.log("New GET request to /info/unemployment-stats has arrived");
 })
 
 app.post('/hello', (req, res) => {
 	res.send("<html><body><h1> Hello! From tiny express server!</h1></body></html>");
 	console.log("New POST request to /hello has arrived");
+})
+
+app.get('/hello', (req, res) => {
+        res.send("<html><body><h1> Hello! From tiny express server!</h1></body></html>");
+        console.log("New GET request to /hello has arrived");
 })
 
 app.get("/",(request, response) => {
