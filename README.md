@@ -6,7 +6,7 @@
   - [José Carlos Torres](https://github.com/secaasecas)
   - [Antonio Maiquez Marin](https://github.com/Jackman97)
   - [Eduardo Carmona](https://github.com/Beelthazad)
-- **Project description**: Our aim is to analyze the relationship between drug use, videogame use, mental health & unemployment at a global scale.
+- **Project description**: Our aim is to analyze the relationship between drug use, hdi, mental health & unemployment at a global scale.
 - **Repository**: [gti-sos/SOS2021-23](https://github.com/gti-sos/SOS2021-23)
 - **URL**: [http://sos2021-23.herokuapp.com](http://sos2021-23.herokuapp.com)
 -  **APIs**:
