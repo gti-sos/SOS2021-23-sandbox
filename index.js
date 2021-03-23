@@ -37,6 +37,11 @@ app.get('/info/drug-use', (req, res) => {
 	console.log("New GET request to /info/drugs-use has arrived");
 })
 
+app.get('/info/hdi-stats', (req, res) => {
+	res.send("<html><head><link rel='stylesheet' type='text/css' href='/css/hdi-stats.css'/></head><body><p>Tabla de HDI Source: <a href='http://hdr.undp.org/en'>here</a></p><table class='tableizer-table'><thead><tr class='tableizer-firstrow'><th>country</th><th>year</th><th>hdi-rank</th><th>hdi-value</th><th>hdi-scholar</th></tr></thead><tbody><tr><tr><td>Spain</td><td>2017</td><td>25</td><td>0.903</td><td>17.9</td></tr><tr><td>France</td><td>2017</td><td>26</td><td>0.897</td><td>15.5</td></tr><tr><td>Germany</td><td>2017</td><td>6</td><td>0.943</td><td>17.0</td></tr><tr><td>United Kingdom</td><td>2017</td><td>13</td><td>0.926</td><td>17.5</td></tr><tr><td>USA</td><td>2017</td><td>17</td><td>0.924</td><td>16.3</td></tr> </tbody></table> </body></html>");
+console.log("New GET request to /info/mh-stats has arrived");
+})
+
 app.post('/hello', (req, res) => {
 	res.send("<html><body><h1> Hello! From tiny express server!</h1></body></html>");
 	console.log("New POST request to /hello has arrived");
