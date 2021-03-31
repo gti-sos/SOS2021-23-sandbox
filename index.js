@@ -3,6 +3,8 @@ var express = require("express");
 var serveIndex = require('serve-index');
 var path = require("path");
 var app = express();
+var BASE_API_PATH_EDU="/api/v1/mh-stats";
+var bodyParser = require("body-parser");
 
 var port = process.env.PORT || 11337;
 
@@ -21,6 +23,7 @@ function hehe() {
 app.use('/public', serveIndex('public')); // shows you the file list
 app.use('/public', express.static(path.join(__dirname,"public")));// serve the actual files
 app.use(express.static(path.join(__dirname,"public")));
+// A implementar 200, 201 / 400, 401, 404, 405, 409
 /*----------------------------------------------- */
 app.get('/info/mh-stats', (req, res) => {
 	res.send("<html><head><link rel='stylesheet' type='text/css' href='/css/mh-stats.css'/></head><body><p>(E.C.G) Source: <a href='https://www.singlecare.com/blog/news/mental-health-statistics/'>here</a></p><table class='tableizer-table'><thead><tr class='tableizer-firstrow'><th>country</th><th>year</th><th>mh-population</th><th>mh-anxdaly</th><th>mh-eating</th><th>mh-adhd</th><th>mh-bipolar</th><th>mh-depression</th><th>mh-schizophrenia</th></tr></thead><tbody><tr><td>Spain</td><td>2017</td><td>46.6</td><td>463.69</td><td>257,180.25</td><td>530,553.88</td><td>451,100.50</td><td>1,82 million</td><td>152,911</td></tr><tr><td>France</td><td>2017</td><td>65</td><td>576.03</td><td>280,994.90</td><td>496,640.31</td><td>600,789.21</td><td>2,95 million</td><td>179,592</td></tr><tr><td>Germany</td><td>2017</td><td>83.1</td><td>565.03</td><td>280,994.90</td><td>217,172.39</td><td>651,663.25</td><td>3,66 million</td><td>239,739</td></tr><tr><td>United Kingdom</td><td>2017</td><td>66.2</td><td>406.09</td><td>292,074.93</td><td>493,584.81</td><td>700,204.25</td><td>2,9 million</td><td>191,745</td></tr><tr><td>USA</td><td>2017</td><td>325.4</td><td>573.38</td><td>1,036,000</td><td>3,016,000</td><td>2,006,000</td><td>15,5 million</td><td>1.15 million</td></tr><tr><td>Brazil</td><td>2017</td><td>207.9</td><td>554.75</td><td>601,275.09</td><td>2,061,000</td><td>2,041,000</td><td>7,22 million</td><td>469,324</td></tr><tr><td>Mexico</td><td>2017</td><td>129.2</td><td>289.05</td><td>395,538.83</td><td>797,378.30</td><td>1,000,000</td><td>3,34 million</td><td>258,084</td></tr><tr><td>Canada</td><td>2017</td><td>36.7</td><td>450.76</td><td>134,371.87</td><td>346,346.07</td><td>252,358.84</td><td>1,44 million</td><td>124,944</td></tr><tr><td>Greenland</td><td>2017</td><td>56,172 (total)</td><td>500.98</td><td>265.02</td><td>623.68</td><td>333.38</td><td>3,455.15</td><td>196</td></tr><tr><td>Italy</td><td>2017</td><td>60.5</td><td>499.21</td><td>275,512.61</td><td>462,874.53</td><td>579,379.78</td><td>2,39 million</td><td>167,800</td></tr></tbody></table><p>Data needs to be normalized</p></body></html>");
@@ -57,6 +60,101 @@ app.get("/cool",(request, response) => {
 	console.log("New request to /cool has arrived");
 });
 
+
+// API DEV (mh-stats)
+app.use(bodyParser.json());
+var mh_countries = [];
+// 5.2
+app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
+	if (mh_countries.length == 0) {
+		try {
+		mh_countries = require("./mh-stats.json");
+		} catch {
+			console.log('Error parsing .json file');
+	}
+		console.log('mh-stats.json loaded onto mh_countries');
+		console.log(JSON.stringify(mh_countries, null));
+		response.status(200).send("<h3>Successfuly loaded "+ mh_countries.length + " resources</h3><p>You can head now to /api/v1/mh-stats to check newly created resources</p>")
+	} else {
+		response.status(403).send("<h1>Resources already loaded. Head back to /api/v1/mh-stats to check it.</h1>")
+	}
+});
+
+// 5.1 y 6.1
+app.get(BASE_API_PATH_EDU, (request, response) =>{
+	if (mh_countries.length == 0) {
+		response.status(200).send("<p>Resources don't exist.</p>");
+	} else {
+		console.log('Resource mh_countries has been requested');
+		response.status(200).send(JSON.stringify(mh_countries,null, 2));
+	}
+
+});
+// 6.2
+app.post(BASE_API_PATH_EDU, (request, response) =>{
+	if (request.body.length != 0) {
+		var newCountry = request.body;
+		console.log(`Add new country: <${JSON.stringify(newCountry, null, 2)}>`);
+		mh_countries.push(newCountry);
+		response.status(201).send("<p>New object created.</p>");
+	} else{
+		
+	}
+
+
+});
+// 6.3
+app.get(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
+	console.log("GET a " + request.params.country + ", permitido");
+	var country;
+	mh_countries.forEach(function(obj) {
+		if (obj.country == request.params.country && obj.year == request.params.year) {
+			country = obj;
+		}
+	});
+	response.status(200).send(JSON.stringify(country, null, 2));
+});
+// 6.6
+app.post(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
+	console.log("POST a recurso individual, no permitido");
+	response.status(405).send();
+});
+// 6.4
+app.delete(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
+	console.log("DELETE "+ JSON.stringify(mh_countries["country" + request.params.country]), null, 2);
+		mh_countries.forEach(function(obj) {
+		if (obj.country == request.params.country && obj.year == request.params.year) {
+			delete mh_countries[obj];
+		}
+	});
+	response.status(200).send("<p>Resource deleted</p>");
+});
+// 6.5
+app.put(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
+	var updateCountry = request.body;
+	console.log(`New country to update: <${JSON.stringify(updateCountry, null, 2)}>`);
+			mh_countries.forEach(function(obj) {
+		if (obj.country == request.params.country && obj.year == request.params.year) {
+			delete mh_countries[obj];
+		}
+	});
+	mh_countries.push(updateCountry);
+	response.status(200).send("<p>Resource updated.</p>")
+});
+// 6.7
+app.put(BASE_API_PATH_EDU, (request, response) => {
+	console.log("PUT a lista de recursos, no permitido.");
+	response.status(405).send();
+});
+// 6.8
+app.delete(BASE_API_PATH_EDU, (request, response) => {
+	console.log("DELETE a todos los recursos, permitido.");
+	mh_countries.length = 0;
+	console.log(mh_countries.length);
+	response.status(202).send();
+});
+
+///////////////////////////////////////////////////
 app.listen(port, () => {
 	console.log("Server is ready, listening on port " + port);
 });

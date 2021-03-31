@@ -1,0 +1,112 @@
+[
+ {
+   "country": "Spain",
+   "year": "2017",
+   "mh-population": "46,600,000",
+   "mh-anxdaly": "463.69",
+   "mh-eating": "257,180.25",
+   "mh-adhd": "530,553.88",
+   "mh-bipolar": "451,100.50",
+   "mh-depression": "1,820,000",
+   "mh-schizophrenia": "152,911"
+ },
+ {
+   "country": "France",
+   "year": "2017",
+   "mh-population": "65,000,000",
+   "mh-anxdaly": "576.03",
+   "mh-eating": "280,994.90",
+   "mh-adhd": "496,640.31",
+   "mh-bipolar": "600,789.21",
+   "mh-depression": "2,950,000",
+   "mh-schizophrenia": "179,592"
+ },
+ {
+   "country": "Germany",
+   "year": "2017",
+   "mh-population": "83,100,000",
+   "mh-anxdaly": "565.03",
+   "mh-eating": "280,994.90",
+   "mh-adhd": "217,172.39",
+   "mh-bipolar": "651,663.25",
+   "mh-depression": "3,660,000",
+   "mh-schizophrenia": "239,739"
+ },
+ {
+   "country": "United Kingdom",
+   "year": "2017",
+   "mh-population": "66,200,000",
+   "mh-anxdaly": "406.09",
+   "mh-eating": "292,074.93",
+   "mh-adhd": "493,584.81",
+   "mh-bipolar": "700,204.25",
+   "mh-depression": "2,900,000",
+   "mh-schizophrenia": "191,745"
+ },
+ {
+   "country": "USA",
+   "year": "2017",
+   "mh-population": "325,400,000",
+   "mh-anxdaly": "573.38",
+   "mh-eating": "1,036,000",
+   "mh-adhd": "3,016,000",
+   "mh-bipolar": "2,006,000",
+   "mh-depression": "15,500,000",
+   "mh-schizophrenia": "1,150,000"
+ },
+ {
+   "country": "Brazil",
+   "year": "2017",
+   "mh-population": "207,900,000",
+   "mh-anxdaly": "554.75",
+   "mh-eating": "601,275.09",
+   "mh-adhd": "2,061,000",
+   "mh-bipolar": "2,041,000",
+   "mh-depression": "7,220,000",
+   "mh-schizophrenia": "469,324"
+ },
+ {
+   "country": "Mexico",
+   "year": "2017",
+   "mh-population": "129,200,000",
+   "mh-anxdaly": "289.05",
+   "mh-eating": "395,538.83",
+   "mh-adhd": "797,378.30",
+   "mh-bipolar": "1,000,000",
+   "mh-depression": "3,340,000",
+   "mh-schizophrenia": "258,084"
+ },
+ {
+   "country": "Canada",
+   "year": "2017",
+   "mh-population": "36,700,000",
+   "mh-anxdaly": "450.76",
+   "mh-eating": "134,371.87",
+   "mh-adhd": "346,346.07",
+   "mh-bipolar": "252,358.84",
+   "mh-depression": "1,440,000",
+   "mh-schizophrenia": "124,944"
+ },
+ {
+   "country": "Greenland",
+   "year": "2017",
+   "mh-population": "56,172",
+   "mh-anxdaly": "500.98",
+   "mh-eating": "265.02",
+   "mh-adhd": "623.68",
+   "mh-bipolar": "333.38",
+   "mh-depression": "3,455.15",
+   "mh-schizophrenia": "196"
+ },
+ {
+   "country": "Italy",
+   "year": "2017",
+   "mh-population": "60,500,000",
+   "mh-anxdaly": "499.21",
+   "mh-eating": "275,512.61",
+   "mh-adhd": "462,874.53",
+   "mh-bipolar": "579,379.78",
+   "mh-depression": "2,390,000",
+   "mh-schizophrenia": "167,800"
+ }
+]
