@@ -63,6 +63,10 @@ app.get("/cool",(request, response) => {
 
 // API DEV (mh-stats)
 app.use(bodyParser.json());
+// Auxiliary function to check if valid JSON array
+function isAO(val) {
+    return val instanceof Array || val instanceof Object ? true : false;
+}
 var mh_countries = [];
 // 5.2
 app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
@@ -72,86 +76,129 @@ app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
 		} catch {
 			console.log('Error parsing .json file');
 	}
-		console.log('mh-stats.json loaded onto mh_countries');
+		console.log('[!] mh-stats.json loaded onto mh_countries');
 		console.log(JSON.stringify(mh_countries, null));
 		response.status(200).send("<h3>Successfuly loaded "+ mh_countries.length + " resources</h3><p>You can head now to /api/v1/mh-stats to check newly created resources</p>")
 	} else {
-		response.status(403).send("<h1>Resources already loaded. Head back to /api/v1/mh-stats to check it.</h1>")
+		console.log('[!] GET request to /loadInitialData but resources are already loaded.');
+		response.status(400).send("<h1>Resources already loaded. Head back to /api/v1/mh-stats to check them.</h1>")
 	}
 });
 
 // 5.1 y 6.1
 app.get(BASE_API_PATH_EDU, (request, response) =>{
 	if (mh_countries.length == 0) {
-		response.status(200).send("<p>Resources don't exist.</p>");
+		console.log('[!] Resource mh_countries has been requested, but are not loaded.');
+		response.status(404).send("<p>Resources not found. Head to /loadInitialData to create them.</p>");
 	} else {
-		console.log('Resource mh_countries has been requested');
+		console.log('[!] Resource mh_countries has been requested');
 		response.status(200).send(JSON.stringify(mh_countries,null, 2));
 	}
-
 });
+
 // 6.2
-app.post(BASE_API_PATH_EDU, (request, response) =>{
-	if (request.body.length != 0) {
-		var newCountry = request.body;
-		console.log(`Add new country: <${JSON.stringify(newCountry, null, 2)}>`);
-		mh_countries.push(newCountry);
-		response.status(201).send("<p>New object created.</p>");
-	} else{
-		
+// Auxiliary function to test if JSON object exists in JSON array.
+function elementExists(obj, obj_t) {
+	for (var i = 0; i < obj.length; i++) {
+		if (obj[i] == obj_t) {
+			return true;
+		} else {
+			false;
+		}
 	}
+}
 
-
+app.post(BASE_API_PATH_EDU, (request, response) =>{
+	if (isAO(request.body) && request.body.length != 0 && !!elementExists(mh_countries, request.body)) {
+		var newCountry = request.body;
+		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
+		mh_countries.push(newCountry);
+		response.status(201).send("<p>New resource created.</p>");
+	} else{
+		console.log("[-] Received malformed or empty JSON when trying to add a new resource. \n-->"+JSON.stringify(newCountry, null));
+		response.status(400).send("<p>400: Bad or empty JSON has been provided.</p>");
+	}
 });
+
+// 6.7
+app.put(BASE_API_PATH_EDU, (request, response) => {
+	console.log("[!] Method (PUT) not allowed at " + BASE_API_PATH_EDU);
+	response.status(405).send('<p>405: Method not allowed</p>');
+});
+
+// 6.8
+app.delete(BASE_API_PATH_EDU, (request, response) => {
+	console.log("[-] Full deletion has been requested. Proceeding.");
+	if (mh_countries.length == 0) {
+		response.status(400).send("<p>400: No resources found. Can't delete any.</p>");
+	} else {
+		mh_countries.length = 0;
+		console.log(mh_countries.length);
+		response.status(200).send("<p>200: All resources deleted.</p>");	
+	}
+});
+
 // 6.3
 app.get(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
-	console.log("GET a " + request.params.country + ", permitido");
+	console.log("[!] GET to " + request.params.country + ", checking if exists.");
 	var country;
 	mh_countries.forEach(function(obj) {
 		if (obj.country == request.params.country && obj.year == request.params.year) {
 			country = obj;
 		}
 	});
-	response.status(200).send(JSON.stringify(country, null, 2));
+	if (isAO(country) && country != null) {
+		response.status(200).send(JSON.stringify(country, null, 2));	
+	} else {
+		console.log("[!] Someone has tried to GET a non-existent resource: \n-->" + request.params.country + "/" + request.params.year);
+		response.status(404).send("<p>404: Resource not found</p>");	
+	}
 });
+
 // 6.6
 app.post(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
-	console.log("POST a recurso individual, no permitido");
-	response.status(405).send();
+	console.log("[!] Method not allowed (POST) to /" + request.params.country +"/"+request.params.year);
+	response.status(405).send('<p>405: Method not allowed</p>');
 });
+
 // 6.4
 app.delete(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
-	console.log("DELETE "+ JSON.stringify(mh_countries["country" + request.params.country]), null, 2);
+	var oldCountry;
+	console.log("[!] Deletion requested for resource: /"+request.params.country+"/"+request.params.year+"\n [?] Checking existence.");
 		mh_countries.forEach(function(obj) {
 		if (obj.country == request.params.country && obj.year == request.params.year) {
-			delete mh_countries[obj];
+			oldCountry = obj;
 		}
 	});
-	response.status(200).send("<p>Resource deleted</p>");
+	if (oldCountry != null) {
+		console.log("[-] Delete: "+ JSON.stringify(oldCountry,null));
+		delete mh_countries[oldCountry];
+		response.status(200).send("<p>Resource deleted</p>");	
+	} else {
+		console.log("[!] Someone has tried to delete a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
+		response.status(400).send("<p>Resource not found, can't delete.</p>");
+	}
 });
+
 // 6.5
 app.put(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 	var updateCountry = request.body;
-	console.log(`New country to update: <${JSON.stringify(updateCountry, null, 2)}>`);
+	var oldCountry;
+	console.log(`[!] New country to update: <${JSON.stringify(updateCountry, null)}>`);
 			mh_countries.forEach(function(obj) {
 		if (obj.country == request.params.country && obj.year == request.params.year) {
-			delete mh_countries[obj];
+			oldCountry = obj;
 		}
 	});
-	mh_countries.push(updateCountry);
-	response.status(200).send("<p>Resource updated.</p>")
-});
-// 6.7
-app.put(BASE_API_PATH_EDU, (request, response) => {
-	console.log("PUT a lista de recursos, no permitido.");
-	response.status(405).send();
-});
-// 6.8
-app.delete(BASE_API_PATH_EDU, (request, response) => {
-	console.log("DELETE a todos los recursos, permitido.");
-	mh_countries.length = 0;
-	console.log(mh_countries.length);
-	response.status(202).send();
+	if (oldCountry != null) {
+		console.log("[-] Delete "+ JSON.stringify(oldCountry, null)+" to add resource: \n-->"+ JSON.stringify(updateCountry, null));
+		delete mh_countries[oldCountry];
+		response.status(200).send("<p>Resource updated.</p>");
+		mh_countries.push(updateCountry);	
+	} else {
+		console.log("[!] Someone has tried to update a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
+		response.status(400).send("<p>Resource not found, can't delete.</p>");
+	}
 });
 
 ///////////////////////////////////////////////////
