@@ -109,7 +109,12 @@ function elementExists(obj, obj_t) {
 }
 
 app.post(BASE_API_PATH_EDU, (request, response) =>{
-	if (isAO(request.body) && request.body.length != 0 && !(request.body in mh_countries)) {
+	var country;
+	mh_countries.forEach(function(obj) {
+		if (obj.country == request.params.country && obj.year == request.params.year) {
+			country = obj;
+		}
+	if (isAO(request.body) && request.body.length != 0 && country == null) {
 		var newCountry = request.body;
 		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
 		mh_countries.push(newCountry);
