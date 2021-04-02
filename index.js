@@ -114,6 +114,7 @@ app.post(BASE_API_PATH_EDU, (request, response) =>{
 		if (obj.country == request.params.country && obj.year == request.params.year) {
 			country = obj;
 		}
+	});
 	if (isAO(request.body) && request.body.length != 0 && country == null) {
 		var newCountry = request.body;
 		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
@@ -210,3 +211,5 @@ app.put(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 app.listen(port, () => {
 	console.log("Server is ready, listening on port " + port);
 });
+	
+	
