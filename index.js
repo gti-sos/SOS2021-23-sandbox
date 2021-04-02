@@ -31,18 +31,13 @@ app.get('/info/mh-stats', (req, res) => {
 })
 
 app.get('/info/unemployment-stats', (req, res) => {
-	res.send("<html><head><link rel='stylesheet' type='text/css' href='/css/mh-stats.css'/></head><body><p>(A.C.E) Source: <a href='https://knoema.es/blizore/unemployment-rate-by-country-2019-data-and-charts'>Source 1</a> <a href='https://www.gfmag.com/global-data/economic-data/worlds-unemployment-ratescom'>Source 2</a> <a href='https://photius.com/rankings/2019/economy/unemployment_rate_2019_image.html'>Source 3</a> </p><table class='tableizer-table'><thead><tr class='tableizer-firstrow'><th>country</th><th>year</th><th>kno-perc</th><th>int-perc</th><th>gf-perc</th></tr></thead><tbody><tr><td>Canada</td><td>2020</td><td>5.4</td><td>5.6</td><td>9.7</td></tr><tr><td>United States</td><td>2020</td><td>3.9</td><td>4.4</td><td>8.8</td></tr><tr><td>United Kingdom</td><td>2020</td><td>4.1</td><td>3.9</td><td>5.3</td></tr><tr><td>Germany</td><td>2020</td><td>3</td><td>3.2</td><td>4.2</td></tr><tr><td>Japan</td><td>2020</td><td>2.3</td><td>2.4</td><td>3.3</td></tr><tr><td>Spain</td><td>2020</td><td>13</td><td>13.6</td><td>16.8</td></tr><tr><td>Brazil</td><td>2020</td><td>12</td><td>11.6</td><td>13.3</td></tr></tbody></table><p> Esta tabla especifica los porcentajes de paro según las fuentes mencionadas </p> </body></html>");
+	res.send("<html><head><link rel='stylesheet' type='text/css' href='/css/mh-stats.css'/></head><body><p>(A.C.E) Source: <a href='https://knoema.es/blizore/unemployment-rate-by-country-2019-data-and-charts'>Source 1</a> <a href='https://www.gfmag.com/global-data/economic-data/worlds-unemployment-ratescom'>Source 2</a> <a href='https://photius.com/rankings/2019/economy/unemployment_rate_2019_image.html'>Source 3</a> </p><table class='tableizer-table'><thead><tr class='tableizer-firstrow'><th>country</th><th>year</th><th>kno-perc</th><th>int-perc</th><th>gf-perc</th></tr></thead><tbody><tr><td>Canada</td><td>2020</td><td>5.4</td><td>5.6</td><td>9.7</td></tr><tr><td>United States</td><td>2020</td><td>3.9</td><td>4.4</td><td>8.8</td></tr><tr><td>United Kingdom</td><td>2020</td><td>4.1</td><td>3.9</td><td>5.3</td></tr><tr><td>Germany</td><td>2020</td><td>3</td><td>3.2</td><td>4.2</td></tr><tr><td>Japan</td><td>2020</td><td>2.3</td><td>2.4</td><td>3.3</td></tr><tr><td>Spain</td><td>2020</td><td>13</td><td>13.6</td><td>16.8</td></tr><tr><td>Brazil</td><td>2020</td><td>12</td><td>11.6</td><td>13.3</td></tr></tbody></table> </body></html>");
 	console.log("New GET request to /info/unemployment-stats has arrived");
 })
 
 app.get('/info/drug-use', (req, res) => {
 	res.send("<html><head><link rel='stylesheet' type='text/css' href='/css/mh-stats.css'/></head><body><p>(J.C.T.M) Source: <a href='https://ourworldindata.org/illicit-drug-use'>Source <a href='https://ourworldindata.org/illicit-drug-use'></a></p><table class='tableizer-table'><thead><tr class='tableizer-firstrow'>th>country</th><th>year</th><th>du-population</th><th>du-dead</th><th>du-dependence-perc</th><th>du-dalys</th></tr></thead><tbody><tr><td>Spain</td><td>2017</td><td>46.6</td><td>1.83</td><td>1.47</td><td>249.83</td></tr> <tr><td>France</td><td>2017</td><td>65</td><td>5.5</td><td>1.18</td><td>254.95</td></tr><tr><td>Germany</td><td>2017</td><td>83.1</td><td>6.7</td><td>0.88</td><td>241.92</td></tr><tr><td>United Kingdom</td><td>2017</td><td>66.2</td><td>6.98</td><td>1.66</td><td>525.75</td></tr><tr><td>USA</td><td>2017</td><td>325.4</td><td>21.99</td><td>3.45</td><td>1.6955,55</td></tr><tr><td>Brazil</td><td>2017</td><td>207.9</td><td>5.5</td><td>1.06</td><td>276.1</td></tr><tr><td>Mexico</td><td>2017</td><td>129.2</td><td>5.09</td><td>0.82</td><td>248.29</td></tr><tr><td>Canada</td><td>2017</td><td>36.7</td><td>7.27</td><td>2.28</td><td>756.15</td></tr><tr><td>Greenland</td><td>2017</td><td>56</td><td>13.93</td><td>1.99</td><td>480.89</td></tr><tr><td>Italy</td><td>2017</td><td>60.5</td><td>1.19</td><td>1.15</td><td>257.85</td></tr> <tr><td>&nbsp;</td><td>&nbsp;</td><td>(millions)</td><td>(per 100.000)</td><td>(in total pob)</td><td>(per 100.000)</td></tr></tbody></table> </body></html>");
 	console.log("New GET request to /info/drugs-use has arrived");
-})
-
-app.get('/info/hdi-stats', (req, res) => {
-	res.send("<html><head><link rel='stylesheet' type='text/css' href='/css/mh-stats.css'/></head><body><p>Tabla de HDI Source: <a href='http://hdr.undp.org/en'>here</a></p><table class='tableizer-table'><thead><tr class='tableizer-firstrow'><th>country</th><th>year</th><th>hdi-rank</th><th>hdi-value</th><th>hdi-scholar</th></tr></thead><tbody><tr><tr><td>Spain</td><td>2017</td><td>25</td><td>0.903</td><td>17.9</td></tr><tr><td>France</td><td>2017</td><td>26</td><td>0.897</td><td>15.5</td></tr><tr><td>Germany</td><td>2017</td><td>6</td><td>0.943</td><td>17.0</td></tr><tr><td>United Kingdom</td><td>2017</td><td>13</td><td>0.926</td><td>17.5</td></tr><tr><td>USA</td><td>2017</td><td>17</td><td>0.924</td><td>16.3</td></tr> </tbody></table> </body></html>");
-console.log("New GET request to /info/mh-stats has arrived");
 })
 
 app.post('/hello', (req, res) => {
@@ -68,6 +63,10 @@ app.get("/cool",(request, response) => {
 
 // API DEV (mh-stats)
 app.use(bodyParser.json());
+// Auxiliary function to check if valid JSON array
+function isAO(val) {
+    return val instanceof Array || val instanceof Object ? true : false;
+}
 var mh_countries = [];
 // 5.2
 app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
@@ -77,89 +76,133 @@ app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
 		} catch {
 			console.log('Error parsing .json file');
 	}
-		console.log('mh-stats.json loaded onto mh_countries');
+		console.log('[!] mh-stats.json loaded onto mh_countries');
 		console.log(JSON.stringify(mh_countries, null));
 		response.status(200).send("<h3>Successfuly loaded "+ mh_countries.length + " resources</h3><p>You can head now to /api/v1/mh-stats to check newly created resources</p>")
 	} else {
-		response.status(403).send("<h1>Resources already loaded. Head back to /api/v1/mh-stats to check it.</h1>")
+		console.log('[!] GET request to /loadInitialData but resources are already loaded.');
+		response.status(400).send("<h1>Resources already loaded. Head back to /api/v1/mh-stats to check them.</h1>")
 	}
 });
 
 // 5.1 y 6.1
 app.get(BASE_API_PATH_EDU, (request, response) =>{
 	if (mh_countries.length == 0) {
-		response.status(200).send("<p>Resources don't exist.</p>");
+		console.log('[!] Resource mh_countries has been requested, but are not loaded.');
+		response.status(404).send("<p>Resources not found. Head to /loadInitialData to create them.</p>");
 	} else {
-		console.log('Resource mh_countries has been requested');
+		console.log('[!] Resource mh_countries has been requested');
 		response.status(200).send(JSON.stringify(mh_countries,null, 2));
 	}
-
 });
+
 // 6.2
-app.post(BASE_API_PATH_EDU, (request, response) =>{
-	if (request.body.length != 0) {
-		var newCountry = request.body;
-		console.log(`Add new country: <${JSON.stringify(newCountry, null, 2)}>`);
-		mh_countries.push(newCountry);
-		response.status(201).send("<p>New object created.</p>");
-	} else{
-		
+// Auxiliary function to test if JSON object exists in JSON array.
+function elementExists(obj, obj_t) {
+	for (var i = 0; i < obj.length; i++) {
+		if (obj[i] == obj_t) {
+			return true;
+		} else {
+			false;
+		}
 	}
+}
 
-
+app.post(BASE_API_PATH_EDU, (request, response) =>{
+	if (isAO(request.body) && request.body.length != 0 && !!elementExists(mh_countries, request.body)) {
+		var newCountry = request.body;
+		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
+		mh_countries.push(newCountry);
+		response.status(201).send("<p>New resource created.</p>");
+	} else{
+		console.log("[-] Received malformed or empty JSON when trying to add a new resource. \n-->"+JSON.stringify(newCountry, null));
+		response.status(400).send("<p>400: Bad or empty JSON has been provided.</p>");
+	}
 });
+
+// 6.7
+app.put(BASE_API_PATH_EDU, (request, response) => {
+	console.log("[!] Method (PUT) not allowed at " + BASE_API_PATH_EDU);
+	response.status(405).send('<p>405: Method not allowed</p>');
+});
+
+// 6.8
+app.delete(BASE_API_PATH_EDU, (request, response) => {
+	console.log("[-] Full deletion has been requested. Proceeding.");
+	if (mh_countries.length == 0) {
+		response.status(400).send("<p>400: No resources found. Can't delete any.</p>");
+	} else {
+		mh_countries.length = 0;
+		console.log(mh_countries.length);
+		response.status(200).send("<p>200: All resources deleted.</p>");	
+	}
+});
+
 // 6.3
 app.get(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
-	console.log("GET a " + request.params.country + ", permitido");
+	console.log("[!] GET to " + request.params.country + ", checking if exists.");
 	var country;
 	mh_countries.forEach(function(obj) {
 		if (obj.country == request.params.country && obj.year == request.params.year) {
 			country = obj;
 		}
 	});
-	response.status(200).send(JSON.stringify(country, null, 2));
+	if (isAO(country) && country != null) {
+		response.status(200).send(JSON.stringify(country, null, 2));	
+	} else {
+		console.log("[!] Someone has tried to GET a non-existent resource: \n-->" + request.params.country + "/" + request.params.year);
+		response.status(404).send("<p>404: Resource not found</p>");	
+	}
 });
+
 // 6.6
 app.post(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
-	console.log("POST a recurso individual, no permitido");
-	response.status(405).send();
+	console.log("[!] Method not allowed (POST) to /" + request.params.country +"/"+request.params.year);
+	response.status(405).send('<p>405: Method not allowed</p>');
 });
+
 // 6.4
 app.delete(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
-	console.log("DELETE "+ JSON.stringify(mh_countries["country" + request.params.country]), null, 2);
+	var oldCountry;
+	console.log("[!] Deletion requested for resource: /"+request.params.country+"/"+request.params.year+"\n [?] Checking existence.");
 		mh_countries.forEach(function(obj) {
 		if (obj.country == request.params.country && obj.year == request.params.year) {
-			delete mh_countries[obj];
+			oldCountry = obj;
 		}
 	});
-	response.status(200).send("<p>Resource deleted</p>");
+	if (oldCountry != null) {
+		console.log("[-] Delete: "+ JSON.stringify(oldCountry,null));
+		delete mh_countries[oldCountry];
+		response.status(200).send("<p>Resource deleted</p>");	
+	} else {
+		console.log("[!] Someone has tried to delete a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
+		response.status(400).send("<p>Resource not found, can't delete.</p>");
+	}
 });
+
 // 6.5
 app.put(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 	var updateCountry = request.body;
-	console.log(`New country to update: <${JSON.stringify(updateCountry, null, 2)}>`);
+	var oldCountry;
+	console.log(`[!] New country to update: <${JSON.stringify(updateCountry, null)}>`);
 			mh_countries.forEach(function(obj) {
 		if (obj.country == request.params.country && obj.year == request.params.year) {
-			delete mh_countries[obj];
+			oldCountry = obj;
 		}
 	});
-	mh_countries.push(updateCountry);
-	response.status(200).send("<p>Resource updated.</p>")
-});
-// 6.7
-app.put(BASE_API_PATH_EDU, (request, response) => {
-	console.log("PUT a lista de recursos, no permitido.");
-	response.status(405).send();
-});
-// 6.8
-app.delete(BASE_API_PATH_EDU, (request, response) => {
-	console.log("DELETE a todos los recursos, permitido.");
-	mh_countries.length = 0;
-	console.log(mh_countries.length);
-	response.status(202).send();
+	if (oldCountry != null) {
+		console.log("[-] Delete "+ JSON.stringify(oldCountry, null)+" to add resource: \n-->"+ JSON.stringify(updateCountry, null));
+		delete mh_countries[oldCountry];
+		response.status(200).send("<p>Resource updated.</p>");
+		mh_countries.push(updateCountry);	
+	} else {
+		console.log("[!] Someone has tried to update a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
+		response.status(400).send("<p>Resource not found, can't delete.</p>");
+	}
 });
 
 ///////////////////////////////////////////////////
 app.listen(port, () => {
 	console.log("Server is ready, listening on port " + port);
 });
+
