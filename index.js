@@ -109,7 +109,7 @@ function elementExists(obj, obj_t) {
 }
 
 app.post(BASE_API_PATH_EDU, (request, response) =>{
-	if (isAO(request.body) && request.body.length != 0 && elementExists(mh_countries, request.body) == false) {
+	if (isAO(request.body) && request.body.length != 0 && !(request.body in mh_countries)) {
 		var newCountry = request.body;
 		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
 		mh_countries.push(newCountry);
