@@ -1,0 +1,51 @@
+[
+    {
+      "country": "Canada",
+      "year": "2020",
+      "kno-perc": "5.4",
+      "int-perc": "5.6",
+      "gf-perc": "9.7"
+    },
+    {
+      "country": "United States",
+      "year": "2020",
+      "kno-perc": "3.9",
+      "int-perc": "4.4",
+      "gf-perc": "8.8"
+    },
+    {
+      "country": "United Kingdom",
+      "year": "2020",
+      "kno-perc": "4.1",
+      "int-perc": "3.9",
+      "gf-perc": "5.3"
+    },
+    {
+      "country": "Germany",
+      "year": "2020",
+      "kno-perc": "3",
+      "int-perc": "3.2",
+      "gf-perc": "4.2"
+    },
+    {
+      "country": "Japan",
+      "year": "2020",
+      "kno-perc": "2.3",
+      "int-perc": "2.4",
+      "gf-perc": "3.3"
+    },
+    {
+      "country": "Spain",
+      "year": "2020",
+      "kno-perc": "13",
+      "int-perc": "13.6",
+      "gf-perc": "16.8"
+    },
+    {
+    "country": "Brazil",
+    "year": "2020",
+    "kno-perc": "12",
+    "int-perc": "11.6",
+    "gf-perc": "13.3"
+    }
+]
