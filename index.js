@@ -7,6 +7,7 @@ var BASE_API_PATH_EDU="/api/v1/mh-stats";
 var BASE_API_PATH_ACE="/api/v1/unemployment-stats";
 var BASE_API_PATH_MEM="/api/v1/hdi-stats";
 var bodyParser = require("body-parser");
+const fs = require('fs');
 
 var port = process.env.PORT || 11337;
 
@@ -80,8 +81,8 @@ var mh_countries = [];
 app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
 	if (mh_countries.length == 0) {
 		try {
-		mh_countries = [];
-		mh_countries = require("./mh-stats.json");
+		let rawdata = fs.readFileSync('mh-stats.json');
+		mh_countries = JSON.parse(rawdata);
 		} catch {
 			console.log('Error parsing .json file');
 	}
