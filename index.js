@@ -128,12 +128,7 @@ app.post(BASE_API_PATH_EDU, (request, response) =>{
 		response.status(400).send("<p>Error</p>");
 	}
 });
-/*
-		console.log("[-] Delete "+ JSON.stringify(oldCountry, null)+" to add resource: \n-->"+ JSON.stringify(updateCountry, null));
-		mh_countries.splice(del_index, 1);
-		response.status(200).send("<p>Resource updated.</p>");
-		mh_countries.push(updateCountry);	
-*/
+
 // 6.7
 app.put(BASE_API_PATH_EDU, (request, response) => {
 	console.log("[!] Method (PUT) not allowed at " + BASE_API_PATH_EDU);
