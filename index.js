@@ -142,7 +142,7 @@ app.delete(BASE_API_PATH_EDU, (request, response) => {
 	if (mh_countries.length == 0 || mh_countries == null) {
 		response.status(400).send("<p>400: No resources found. Can't delete any.</p>");
 	} else {
-		mh_countries == [];
+		mh_countries.length == 0;
 		console.log(mh_countries.length);
 		response.status(200).send("<p>200: All resources deleted.</p>");
 	}
