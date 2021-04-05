@@ -119,6 +119,7 @@ app.post(BASE_API_PATH_EDU, (request, response) =>{
 	}
 	if (oldCountry == null) {
 		console.log("[!] POST with: \n-->" + JSON.stringify(updateCountry, null) + " :: Not found in array.");
+		response.status(200).send("<p>Added resource.</p>");
 		mh_countries.push(updateCountry);
 	} else if (JSON.stringify(oldCountry, null) == JSON.stringify(updateCountry, null)) {
 		console.log("[!] Someone has tried upload an existent resource: \n-->" + JSON.stringify(oldCountry, null));
