@@ -104,29 +104,36 @@ app.get(BASE_API_PATH_EDU, (request, response) =>{
 	}
 });
 
-app.post(BASE_API_PATH_EDU, (error, request, response) =>{
-	var country = null;
-	var newCountry = request.body;
+app.post(BASE_API_PATH_EDU, (request, response) =>{
+	var updateCountry = request.body;
+	console.log(updateCountry.country);
+		console.log(updateCountry.year);
+	var oldCountry;
+	var del_index;
+	console.log(`[!] Received: <${JSON.stringify(updateCountry, null)}> checking for coincidences...`);
 	for(var i=0; i<mh_countries.length; i++){
-		if(mh_countries[i].country==request.params.country && mh_countries[i].year==request.params.year){
-			country = mh_countries[i];
+		if(mh_countries[i].country==updateCountry.country && mh_countries[i].year==updateCountry.year){
+			oldCountry = mh_countries[i];
+			del_index = i;
 		}
 	}
-	if (country == null) {
-		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
-		mh_countries.push(newCountry);
-		response.status(201).send("<p>New resource created.</p>");
-	} else if (country != null){
+	if (oldCountry == null) {
+		console.log("[!] POST with: \n-->" + JSON.stringify(updateCountry, null) + " :: Not found in array.");
+		mh_countries.push(updateCountry);
+	} else if (JSON.stringify(oldCountry, null) == JSON.stringify(updateCountry, null)) {
+		console.log("[!] Someone has tried upload an existent resource: \n-->" + JSON.stringify(oldCountry, null));
+		response.status(400).send("<p>Resource already exists.</p>");
+	} else {
+		console.log("[!] POST containing: \n-->" + JSON.stringify(updateCountry, null));
+		response.status(400).send("<p>Error</p>");
+	}
+});
+/*
 		console.log("[-] Delete "+ JSON.stringify(oldCountry, null)+" to add resource: \n-->"+ JSON.stringify(updateCountry, null));
 		mh_countries.splice(del_index, 1);
 		response.status(200).send("<p>Resource updated.</p>");
 		mh_countries.push(updateCountry);	
-	} else if (error) {
-		console.log("[-] Received malformed, empty JSON or already existing resource when trying to add a new one. \n-->"+JSON.stringify(newCountry, null));
-		response.status(400).send("<p>400: Bad or empty JSON has been provided.</p>");
-	}
-});
-
+*/
 // 6.7
 app.put(BASE_API_PATH_EDU, (request, response) => {
 	console.log("[!] Method (PUT) not allowed at " + BASE_API_PATH_EDU);
