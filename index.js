@@ -78,7 +78,7 @@ function isAO(val) {
 var mh_countries;
 // 5.2
 app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
-	if (mh_countries == null) {
+	if (mh_countries == null || mh_countries.length == 0) {
 		try {
 		mh_countries = require("./mh-stats.json");
 		} catch {
@@ -142,7 +142,7 @@ app.delete(BASE_API_PATH_EDU, (request, response) => {
 	if (mh_countries.length == 0) {
 		response.status(400).send("<p>400: No resources found. Can't delete any.</p>");
 	} else {
-		mh_countries == null;
+		mh_countries.length == 0;
 		console.log(mh_countries.length);
 		response.status(200).send("<p>200: All resources deleted.</p>");	
 	}
