@@ -75,10 +75,10 @@ app.use(bodyParser.json());
 function isAO(val) {
     return val instanceof Array || val instanceof Object ? true : false;
 }
-var mh_countries = [];
+var mh_countries == null;
 // 5.2
 app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
-	if (mh_countries.length == 0) {
+	if (mh_countries == null) {
 		try {
 		mh_countries = require("./mh-stats.json");
 		} catch {
@@ -142,7 +142,7 @@ app.delete(BASE_API_PATH_EDU, (request, response) => {
 	if (mh_countries.length == 0) {
 		response.status(400).send("<p>400: No resources found. Can't delete any.</p>");
 	} else {
-		mh_countries.length = 0;
+		mh_countries == null;
 		console.log(mh_countries.length);
 		response.status(200).send("<p>200: All resources deleted.</p>");	
 	}
@@ -208,7 +208,7 @@ app.put(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 		console.log("[-] Delete "+ JSON.stringify(oldCountry, null)+" to add resource: \n-->"+ JSON.stringify(updateCountry, null));
 		mh_countries.splice(del_index, 1);
 		response.status(200).send("<p>Resource updated.</p>");
-		mh_countries.push(updateCountry);	
+		mh_countries.push(updateCountry);
 	} else {
 		console.log("[!] Someone has tried to update a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
 		response.status(400).send("<p>Resource not found, can't delete.</p>");
