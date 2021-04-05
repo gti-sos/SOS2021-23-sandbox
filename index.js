@@ -75,10 +75,10 @@ app.use(bodyParser.json());
 function isAO(val) {
     return val instanceof Array || val instanceof Object ? true : false;
 }
-var mh_countries;
+var mh_countries = [];
 // 5.2
 app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
-	if (mh_countries == null || mh_countries.length == 0) {
+	if (mh_countries.length == 0) {
 		try {
 		mh_countries = require("./mh-stats.json");
 		} catch {
