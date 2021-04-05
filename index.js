@@ -104,32 +104,25 @@ app.get(BASE_API_PATH_EDU, (request, response) =>{
 	}
 });
 
-// 6.2
-// Auxiliary function to test if JSON object exists in JSON array.
-function elementExists(obj, obj_t) {
-	for (var i = 0; i < obj.length; i++) {
-		if (obj[i] == obj_t) {
-			return true;
-		} else {
-			false;
+app.post(BASE_API_PATH_EDU, (error, request, response) =>{
+	var country = null;
+	var newCountry = request.body;
+	for(var i=0; i<mh_countries.length; i++){
+		if(mh_countries[i].country==request.params.country && mh_countries[i].year==request.params.year){
+			country = mh_countries[i];
 		}
 	}
-}
-
-app.post(BASE_API_PATH_EDU, (request, response) =>{
-	var country;
-	mh_countries.forEach(function(obj) {
-		if (obj.country == request.params.country && obj.year == request.params.year) {
-			country = obj;
-		}
-	});
-	if (isAO(request.body) && request.body.length != 0 && country == null) {
-		var newCountry = request.body;
+	if (country == null) {
 		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
 		mh_countries.push(newCountry);
 		response.status(201).send("<p>New resource created.</p>");
-	} else{
-		console.log("[-] Received malformed or empty JSON when trying to add a new resource. \n-->"+JSON.stringify(newCountry, null));
+	} else if (country != null){
+		console.log("[-] Delete "+ JSON.stringify(oldCountry, null)+" to add resource: \n-->"+ JSON.stringify(updateCountry, null));
+		mh_countries.splice(del_index, 1);
+		response.status(200).send("<p>Resource updated.</p>");
+		mh_countries.push(updateCountry);	
+	} else if (error) {
+		console.log("[-] Received malformed, empty JSON or already existing resource when trying to add a new one. \n-->"+JSON.stringify(newCountry, null));
 		response.status(400).send("<p>400: Bad or empty JSON has been provided.</p>");
 	}
 });
@@ -178,15 +171,17 @@ app.post(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 // 6.4
 app.delete(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 	var oldCountry;
+	var del_index;
 	console.log("[!] Deletion requested for resource: /"+request.params.country+"/"+request.params.year+"\n [?] Checking existence.");
-		mh_countries.forEach(function(obj) {
-		if (obj.country == request.params.country && obj.year == request.params.year) {
-			oldCountry = obj;
+	for(var i=0; i<mh_countries.length; i++){
+		if(mh_countries[i].country==request.params.country && mh_countries[i].year==request.params.year){
+			oldCountry = mh_countries[i];
+			del_index = i;
 		}
-	});
+	}
 	if (oldCountry != null) {
 		console.log("[-] Delete: "+ JSON.stringify(oldCountry,null));
-		delete mh_countries[oldCountry];
+		mh_countries.splice(del_index, 1);
 		response.status(200).send("<p>Resource deleted</p>");	
 	} else {
 		console.log("[!] Someone has tried to delete a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
@@ -198,15 +193,17 @@ app.delete(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 app.put(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 	var updateCountry = request.body;
 	var oldCountry;
+	var del_index;
 	console.log(`[!] New country to update: <${JSON.stringify(updateCountry, null)}>`);
-			mh_countries.forEach(function(obj) {
-		if (obj.country == request.params.country && obj.year == request.params.year) {
-			oldCountry = obj;
+	for(var i=0; i<mh_countries.length; i++){
+		if(mh_countries[i].country==request.params.country && mh_countries[i].year==request.params.year){
+			oldCountry = mh_countries[i];
+			del_index = i;
 		}
-	});
+	}
 	if (oldCountry != null) {
 		console.log("[-] Delete "+ JSON.stringify(oldCountry, null)+" to add resource: \n-->"+ JSON.stringify(updateCountry, null));
-		delete mh_countries[oldCountry];
+		mh_countries.splice(del_index, 1);
 		response.status(200).send("<p>Resource updated.</p>");
 		mh_countries.push(updateCountry);	
 	} else {
@@ -214,7 +211,6 @@ app.put(BASE_API_PATH_EDU+"/:country/:year", (request, response) => {
 		response.status(400).send("<p>Resource not found, can't delete.</p>");
 	}
 });
-
 ///////////////////////////////////////////////////
 // API DEV (unemployment-stats)
 var unemployment_countries = [];
