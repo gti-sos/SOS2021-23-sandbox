@@ -246,18 +246,6 @@ app.get(BASE_API_PATH_ACE, (request, response) =>{
 	}
 });
 
-// 6.2
-// Auxiliary function to test if JSON object exists in JSON array.
-function elementExists(obj, obj_t) {
-	for (var i = 0; i < obj.length; i++) {
-		if (obj[i] == obj_t) {
-			return true;
-		} else {
-			false;
-		}
-	}
-}
-
 app.post(BASE_API_PATH_ACE, (request, response) =>{
 	var country;
 	unemployment_countries.forEach(function(obj) {
@@ -386,18 +374,6 @@ app.get(BASE_API_PATH_MEM, (request, response) =>{
 		response.status(200).send(JSON.stringify(hdi_countries,null, 2));
 	}
 });
-
-// 6.2
-// Auxiliary function to test if JSON object exists in JSON array.
-function elementExists(obj, obj_t) {
-	for (var i = 0; i < obj.length; i++) {
-		if (obj[i] == obj_t) {
-			return true;
-		} else {
-			false;
-		}
-	}
-}
 
 app.post(BASE_API_PATH_MEM, (request, response) =>{
 	var country;
