@@ -80,6 +80,7 @@ var mh_countries = [];
 app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
 	if (mh_countries.length == 0) {
 		try {
+		mh_countries = [];
 		mh_countries = require("./mh-stats.json");
 		} catch {
 			console.log('Error parsing .json file');
