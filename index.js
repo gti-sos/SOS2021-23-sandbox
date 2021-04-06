@@ -489,9 +489,6 @@ app.put(BASE_API_PATH_MEM+"/:country/:year", (request, response) => {
 	}
 });
 ///////////////////////////////////////////////////
-app.listen(port, () => {
-	console.log("Server is ready, listening on port " + port);
-});
 
 // API DEV (du-stats)
 app.use(bodyParser.json());
