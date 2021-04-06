@@ -231,7 +231,7 @@ app.get(BASE_API_PATH_ACE+"/loadInitialData", (request, response) =>{
 	}
 		console.log('[!] unemployment-stats.json loaded onto unemployment_countries');
 		console.log(JSON.stringify(unemployment_countries, null));
-		response.status(200).send("<h3>Successfuly loaded "+ unemployment_countries.length + " resources</h3><p>You can head now to /api/v1/mh-stats to check newly created resources</p>")
+		response.status(200).send("<h3>Successfuly loaded "+ unemployment_countries.length + " resources</h3><p>You can head now to /api/v1/unemployment-stats to check newly created resources</p>")
 	} else {
 		console.log('[!] GET request to /loadInitialData but resources are already loaded.');
 		response.status(400).send("<h1>Resources already loaded. Head back to /api/v1/unemployment-stats to check them.</h1>")
