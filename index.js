@@ -6,6 +6,7 @@ var app = express();
 var BASE_API_PATH_EDU="/api/v1/mh-stats";
 var BASE_API_PATH_ACE="/api/v1/unemployment-stats";
 var BASE_API_PATH_MEM="/api/v1/hdi-stats";
+var BASE_API_PATH_SEC="/api/v1/du-stats";
 var bodyParser = require("body-parser");
 const fs = require('fs');
 
