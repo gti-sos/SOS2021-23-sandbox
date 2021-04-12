@@ -1,9 +1,9 @@
 var BASE_API_PATH_ACE="/api/v1/unemployment-stats";
-var unemployment_countries = [];
+
 
 module.exports.register = (app) => {
 // API DEV (unemployment-stats)
-
+var unemployment_countries = [];
 // 5.2
 app.get(BASE_API_PATH_ACE+"/loadInitialData", (request, response) =>{
 	if (unemployment_countries.length == 0) {

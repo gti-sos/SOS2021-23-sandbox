@@ -1,7 +1,7 @@
 var BASE_API_PATH_SEC="/api/v1/du-stats";
 
 module.exports.register = (app) => {
-    var du_countries = [];
+var du_countries = [];
 // 5.2
 app.get(BASE_API_PATH_SEC+"/loadInitialData", (request, response) =>{
 	if (du_countries.length == 0) {

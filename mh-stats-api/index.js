@@ -3,6 +3,7 @@ var BASE_API_PATH_EDU="/api/v1/mh-stats";
 
 ///////////////////////////////////////////////////
 module.exports.register = (app) => {
+    var mh_countries = [];
     app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
         if (mh_countries.length == 0) {
             try {

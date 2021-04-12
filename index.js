@@ -13,7 +13,6 @@ var port = process.env.PORT || 11337;
 // Inicialización de APIs
 app.use(bodyParser.json());
 //mh-stats
-var mh_countries = [];
 var mh_api =  require("./mh-stats-api");
 mh_api.register(app);
 //du-stats

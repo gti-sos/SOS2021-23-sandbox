@@ -1,8 +1,8 @@
-var hdi_countries = [];
 var BASE_API_PATH_MEM="/api/v1/hdi-stats";
 
 module.exports.register = (app) => {
-// 5.2
+var hdi_countries = [];
+
 app.get(BASE_API_PATH_MEM+"/loadInitialData", (request, response) =>{
 	if (hdi_countries.length == 0) {
 		try {
