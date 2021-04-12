@@ -1,5 +1,4 @@
 var BASE_API_PATH_EDU="/api/v1/mh-stats";
-var mh_countries = [];
 // 5.2
 
 ///////////////////////////////////////////////////
