@@ -13,7 +13,7 @@ var port = process.env.PORT || 11337;
 // Inicialización de APIs
 app.use(bodyParser.json());
 //mh-stats
-var mh_api =  require("./mh-stats-api");
+var mh_api = require("./mh-stats-api");
 mh_api.register(app);
 //du-stats
 var du_api = require("./drug-use-api");

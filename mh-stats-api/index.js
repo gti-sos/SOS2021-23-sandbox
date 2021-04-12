@@ -1,7 +1,5 @@
 var BASE_API_PATH_EDU="/api/v1/mh-stats";
-// 5.2
-
-///////////////////////////////////////////////////
+const fs = require('fs');
 module.exports.register = (app) => {
     var mh_countries = [];
     app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
