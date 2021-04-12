@@ -1,4 +1,19 @@
 var BASE_API_PATH_MEM="/api/v1/hdi-stats";
+const fs = require('fs');
+
+function isAO(val) {
+    return val instanceof Array || val instanceof Object ? true : false;
+}
+
+function elementExists(obj, obj_t) {
+	for (var i = 0; i < obj.length; i++) {
+		if (obj[i] == obj_t) {
+			return true;
+		} else {
+			false;
+		}
+	}
+}
 
 module.exports.register = (app) => {
 var hdi_countries = [];

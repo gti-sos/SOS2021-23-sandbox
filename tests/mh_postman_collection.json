@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "eac805fb-c48a-4537-8907-8942d454d40a",
+		"name": "SOS2021-23/mh-stats REST API - Documentation",
+		"description": "In this brief page you can find every available method for the mh-stats API.\n\nOur aim is to make this data available for anyone interested.\n*If you wish to contact with me head over to /info/mh-stats*.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/mh-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"pm.test(\"Body matches string, 'Head to /loadInitialData'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Head to /loadInitialData to create them.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats"
+					]
+				},
+				"description": "Allows you to fetch every resource available on the server, with JSON output."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"10 resources have been loaded\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"10\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"10 resources available through GET request to /mh-stats\"), function() {\r",
+							"    pm.sendRequest(\"https://sos2021-23.herokuapp.com/api/v1/mh-stats\", function (err, response) {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(jsonData.length).to.eql(10);\r",
+							"});\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats",
+						"loadInitialData"
+					]
+				},
+				"description": "Loads 10 initial resources, with data from 10 different countries."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats/:country/:year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Resource /Spain/2017 received\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.country).to.eql(\"Spain\");\r",
+							"    pm.expect(jsonData.year).to.eql('2017');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats/Spain/2017",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats",
+						"Spain",
+						"2017"
+					]
+				},
+				"description": "Requesting a specific resource."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats/:country/:year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches 'Resource Deleted'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Resource deleted\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats/Spain/2017",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats",
+						"Spain",
+						"2017"
+					]
+				},
+				"description": "Deleting specific resource."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats/:country/:year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Resource not found, can't delete.\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Resource not found, can't delete.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spainy\",\r\n\"year\": \"2018\",\r\n\"mh-population\": \"46,600,000\",\r\n\"mh-anxdaly\": \"463.69\",\r\n\"mh-eating\": \"257,180.25\",\r\n\"mh-adhd\": \"530,553.88\",\r\n\"mh-bipolar\": \"451,100.50\",\r\n\"mh-depression\": \"1,820,000\",\r\n\"mh-schizophrenia\": \"152,911\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats/Spain/2017",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats",
+						"Spain",
+						"2017"
+					]
+				},
+				"description": "Update existant resource."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats/:country/:year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405, method not allowed\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string 'Method not allowed'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Method not allowed\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": \"2017\",\r\n\"mh-population\": \"46,600,000\",\r\n\"mh-anxdaly\": \"463.69\",\r\n\"mh-eating\": \"257,180.25\",\r\n\"mh-adhd\": \"530,553.88\",\r\n\"mh-bipolar\": \"451,100.50\",\r\n\"mh-depression\": \"1,820,000\",\r\n\"mh-schizophrenia\": \"152,911\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats/Spain/2017",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats",
+						"Spain",
+						"2017"
+					]
+				},
+				"description": "Method not allowed. Add new resources through a POST request to /api/v1/mh-stats. Below you can preview an example resource, ready to be added through the aforementioned endpoint."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405, method not allowed\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string 'Method not allowed'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Method not allowed\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats"
+					]
+				},
+				"description": "Method not allowed. Updating should be done over the specific resource on the request."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats/noexiste/2001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string, 'Resource not found'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Resource not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats/noexiste/2001",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats",
+						"noexiste",
+						"2001"
+					]
+				},
+				"description": "Example request to a non-existant resource."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string, 'Added resource.'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Added resource.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spainy\",\r\n\"year\": \"2017\",\r\n\"mh-population\": \"46,600,000\",\r\n\"mh-anxdaly\": \"463.69\",\r\n\"mh-eating\": \"257,180.25\",\r\n\"mh-adhd\": \"530,553.88\",\r\n\"mh-bipolar\": \"451,100.50\",\r\n\"mh-depression\": \"1,820,000\",\r\n\"mh-schizophrenia\": \"152,911\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats"
+					]
+				},
+				"description": "#1 method for resource uploading."
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/mh-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string, 'All resources deleted'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"All resources deleted.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-23.herokuapp.com/api/v1/mh-stats",
+					"protocol": "https",
+					"host": [
+						"sos2021-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"mh-stats"
+					]
+				},
+				"description": "Use this method to delete all loaded resources (old, new & updated ones)."
+			},
+			"response": []
+		}
+	]
+}
