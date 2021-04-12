@@ -21,7 +21,8 @@ var du_countries = [];
 app.get(BASE_API_PATH_SEC+"/loadInitialData", (request, response) =>{
 	if (du_countries.length == 0) {
 		try {
-		du_countries = require("./du-stats.json");
+		let rawdata = fs.readFileSync('du-stats.json');
+		du_countries = JSON.parse(rawdata);
 		} catch {
 			console.log('Error parsing .json file');
 	}
