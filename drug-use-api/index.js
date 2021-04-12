@@ -21,14 +21,14 @@ var du_countries = [];
 app.get(BASE_API_PATH_SEC+"/loadInitialData", (request, response) =>{
 	if (du_countries.length == 0) {
 		try {
-		let rawdata = fs.readFileSync('du-stats.json');
+		let rawdata = fs.readFileSync('./drug-use-api/du-stats.json');
 		du_countries = JSON.parse(rawdata);
 		} catch {
 			console.log('Error parsing .json file');
 	}
 		console.log('[!] du-stats.json loaded onto du_countries');
 		console.log(JSON.stringify(du_countries, null));
-		response.status(200).send("<h3>Successfuly loaded "+ du_countries.length + " resources</h3><p>You can head now to /api/v1/mh-stats to check newly created resources</p>")
+		response.status(200).send("<h3>Successfuly loaded "+ du_countries.length + " resources</h3><p>You can head now to /api/v1/du-stats to check newly created resources</p>")
 	} else {
 		console.log('[!] GET request to /loadInitialData but resources are already loaded.');
 		response.status(400).send("<h1>Resources already loaded. Head back to /api/v1/du-stats to check them.</h1>")
