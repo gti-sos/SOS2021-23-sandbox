@@ -7,7 +7,7 @@ module.exports.register = (app) => {
     app.get(BASE_API_PATH_EDU+"/loadInitialData", (request, response) =>{
         if (mh_countries.length == 0) {
             try {
-            let rawdata = fs.readFileSync('mh-stats.json');
+            let rawdata = fs.readFileSync('./mh-stats-api/mh-stats.json');
             mh_countries = JSON.parse(rawdata);
             } catch {
                 console.log('Error parsing .json file');
