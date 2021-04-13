@@ -21,7 +21,8 @@ var hdi_countries = [];
 app.get(BASE_API_PATH_MEM+"/loadInitialData", (request, response) =>{
 	if (hdi_countries.length == 0) {
 		try {
-			hdi_countries = require("./hdi-stats.json");
+			let rawdata= fs.readFileSync("./hdi-stats-api/hdi-stats.json");
+			hdi_countries = JSON.parse(rawdata);
 		} catch {
 			console.log('Error parsing .json file');
 	}
@@ -46,21 +47,29 @@ app.get(BASE_API_PATH_MEM, (request, response) =>{
 });
 
 app.post(BASE_API_PATH_MEM, (request, response) =>{
-	var country;
-	hdi_countries.forEach(function(obj) {
-		if (obj.country == request.params.country && obj.year == request.params.year) {
-			country = obj;
-		}
-	});
-	if (isAO(request.body) && request.body.length != 0 && country == null) {
-		var newCountry = request.body;
-		console.log(`Add new country: <${JSON.stringify(newCountry, null)}>`);
-		hdi_countries.push(newCountry);
-		response.status(201).send("<p>New resource created.</p>");
-	} else{
-		console.log("[-] Received malformed or empty JSON when trying to add a new resource. \n-->"+JSON.stringify(newCountry, null));
-		response.status(400).send("<p>400: Bad or empty JSON has been provided.</p>");
-	}
+	var updateCountry = request.body;
+        console.log(updateCountry.country);
+            console.log(updateCountry.year);
+        var oldCountry;
+        var del_index;
+        console.log(`[!] Received: <${JSON.stringify(updateCountry, null)}> checking for coincidences...`);
+        for(var i=0; i<hdi_countries.length; i++){
+            if(hdi_countries[i].country==updateCountry.country && hdi_countries[i].year==updateCountry.year){
+                oldCountry = hdi_countries[i];
+                del_index = i;
+            }
+        }
+        if (oldCountry == null) {
+            console.log("[!] POST with: \n-->" + JSON.stringify(updateCountry, null) + " :: Not found in array.");
+            response.status(201).send("<p>Added resource.</p>");
+            hdi_countries.push(updateCountry);
+        } else if (JSON.stringify(oldCountry, null) == JSON.stringify(updateCountry, null)) {
+            console.log("[!] Someone has tried upload an existent resource: \n-->" + JSON.stringify(oldCountry, null));
+            response.status(400).send("<p>Resource already exists.</p>");
+        } else {
+            console.log("[!] POST containing: \n-->" + JSON.stringify(updateCountry, null));
+            response.status(400).send("<p>Error</p>");
+        }
 });
 
 // 6.7
@@ -105,23 +114,25 @@ app.post(BASE_API_PATH_MEM+"/:country/:year", (request, response) => {
 });
 
 // 6.4
-app.delete(BASE_API_PATH_MEM+"/:country/:year", (request, response) => {
-	var oldCountry;
-	console.log("[!] Deletion requested for resource: /"+request.params.country+"/"+request.params.year+"\n [?] Checking existence.");
-	hdi_countries.forEach(function(obj) {
-		if (obj.country == request.params.country && obj.year == request.params.year) {
-			oldCountry = obj;
-		}
-	});
-	if (oldCountry != null) {
-		console.log("[-] Delete: "+ JSON.stringify(oldCountry,null));
-		delete hdi_countries[oldCountry];
-		response.status(200).send("<p>Resource deleted</p>");	
-	} else {
-		console.log("[!] Someone has tried to delete a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
-		response.status(400).send("<p>Resource not found, can't delete.</p>");
-	}
-});
+   app.delete(BASE_API_PATH_MEM+"/:country/:year", (request, response) => {
+        var oldCountry;
+        var del_index;
+        console.log("[!] Deletion requested for resource: /"+request.params.country+"/"+request.params.year+"\n [?] Checking existence.");
+        for(var i=0; i<hdi_countries.length; i++){
+            if(hdi_countries[i].country==request.params.country && hdi_countries[i].year==request.params.year){
+                oldCountry = hdi_countries[i];
+                del_index = i;
+            }
+        }
+        if (oldCountry != null) {
+            console.log("[-] Delete: "+ JSON.stringify(oldCountry,null));
+            hdi_countries.splice(del_index, 1);
+            response.status(200).send("<p>Resource deleted</p>");	
+        } else {
+            console.log("[!] Someone has tried to delete a non-existent resource: \n-->" + JSON.stringify(oldCountry, null));
+            response.status(400).send("<p>Resource not found, can't delete.</p>");
+        }
+    });
 
 // 6.5
 app.put(BASE_API_PATH_MEM+"/:country/:year", (request, response) => {
