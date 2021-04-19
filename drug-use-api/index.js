@@ -161,7 +161,7 @@ var du_stats = [
                 if(resources.length !=0){
                     console.log("El recurso ya existe");
                     res.sendStatus(409);
-                }else if(!newData.country || !newData.year ||!newData.dupopulation||!newData.dudead || !newData.dudependenceperc || !newData.dudaly  ||Object.keys(newData).length != 5){
+                }else if(!newData.country || !newData.year ||!newData.dupopulation||!newData.dudead || !newData.dudependenceperc || !newData.dudaly  ||Object.keys(newData).length != 6){
                         console.log("El número de campos no es el correcto");
                         res.sendStatus(400);
                 }else{

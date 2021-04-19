@@ -1,30 +1,20 @@
-{"country":"Spain","year":"2017","du-population":"46,600,000","du-dead":"1.83","du-dependence-perc":"1.47","du-daly":"249.83","_id":"GzNmr6CBpCO9JSEp"}
-{"country":"France","year":"2017","du-population":"65,000,000","du-dead":"5.5","du-dependence-perc":"1.18","du-daly":"254.95","_id":"a8G4kay90buSUicC"}
-{"country":"Germany","year":"2017","du-population":"83,100,000","du-dead":"6.7","du-dependence-perc":"1.66","du-daly":"241.92","_id":"LI9dP2srYf8rySqP"}
-{"country":"United Kingdom","year":"2017","du-population":"66,200,000","du-dead":"6.98","du-dependence-perc":"1.66","du-daly":"527.75","_id":"oQTkZtQ6sgZHhGTu"}
-{"country":"USA","year":"2017","du-population":"325,400,000","du-dead":"21.99","du-dependence-perc":"3.45","du-daly":"1.695.55","_id":"h96f3ao01eOnTNCx"}
-{"country":"Brazil","year":"2017","du-population":"207,900,000","du-dead":"5.5","du-dependence-perc":"1.06","du-daly":"276.1","_id":"GfcFOeOEPhBoRtgZ"}
-{"country":"Mexico","year":"2017","du-population":"129,200,000","du-dead":"5.09","du-dependence-perc":"0.82","du-daly":"248.29","_id":"lB3WSE2Khx9BRI2s"}
-{"country":"Canada","year":"2017","du-population":"36,700,000","du-dead":"7.27","du-dependence-perc":"2.28","du-daly":"756.15","_id":"P1Pgr1pfe0Y3ooTL"}
-{"country":"Greenland","year":"2017","du-population":"56,000,000","du-dead":"13.93","du-dependence-perc":"1.99","du-daly":"480.89","_id":"6kK8SnuLxtxoCOdW"}
-{"country":"Italy","year":"2017","du-population":"60,500,000","du-dead":"1.19","du-dependence-perc":"1.15","du-daly":"257.85","_id":"ft0Sb3BP8Y3mSewG"}
-{"country":"Spain","year":"2017","du-population":"46,600,000","du-dead":"1.83","du-dependence-perc":"1.47","du-daly":"249.83","_id":"XgfeNBdNErf8tSpB"}
-{"country":"France","year":"2017","du-population":"65,000,000","du-dead":"5.5","du-dependence-perc":"1.18","du-daly":"254.95","_id":"eKKnaKNHX9Nibwxl"}
-{"country":"Germany","year":"2017","du-population":"83,100,000","du-dead":"6.7","du-dependence-perc":"1.66","du-daly":"241.92","_id":"CSw8bhgX1MavEBu0"}
-{"country":"United Kingdom","year":"2017","du-population":"66,200,000","du-dead":"6.98","du-dependence-perc":"1.66","du-daly":"527.75","_id":"0caPZQMurm0cpRyg"}
-{"country":"USA","year":"2017","du-population":"325,400,000","du-dead":"21.99","du-dependence-perc":"3.45","du-daly":"1.695.55","_id":"nW7zYdVnBdt2Ow96"}
-{"country":"Brazil","year":"2017","du-population":"207,900,000","du-dead":"5.5","du-dependence-perc":"1.06","du-daly":"276.1","_id":"cEw0cSIMZgWS2njQ"}
-{"country":"Mexico","year":"2017","du-population":"129,200,000","du-dead":"5.09","du-dependence-perc":"0.82","du-daly":"248.29","_id":"mOLMWcbzQ9vtvuvw"}
-{"country":"Canada","year":"2017","du-population":"36,700,000","du-dead":"7.27","du-dependence-perc":"2.28","du-daly":"756.15","_id":"bKdq2QeqSrC092uF"}
-{"country":"Greenland","year":"2017","du-population":"56,000,000","du-dead":"13.93","du-dependence-perc":"1.99","du-daly":"480.89","_id":"ayFaqJt4shqQyDNx"}
-{"country":"Italy","year":"2017","du-population":"60,500,000","du-dead":"1.19","du-dependence-perc":"1.15","du-daly":"257.85","_id":"l0rFvxTlJ5aCa5OS"}
-{"country":"Spain","year":"2017","du-population":"46,600,000","du-dead":"1.83","du-dependence-perc":"1.47","du-daly":"249.83","_id":"BQLJKkqD15POLzIW"}
-{"country":"France","year":"2017","du-population":"65,000,000","du-dead":"5.5","du-dependence-perc":"1.18","du-daly":"254.95","_id":"TGFbUtlF1uUbEtLa"}
-{"country":"Germany","year":"2017","du-population":"83,100,000","du-dead":"6.7","du-dependence-perc":"1.66","du-daly":"241.92","_id":"71U2Aob4KDRWajPz"}
-{"country":"United Kingdom","year":"2017","du-population":"66,200,000","du-dead":"6.98","du-dependence-perc":"1.66","du-daly":"527.75","_id":"PuMei7mG6lB9VG19"}
-{"country":"USA","year":"2017","du-population":"325,400,000","du-dead":"21.99","du-dependence-perc":"3.45","du-daly":"1.695.55","_id":"3s8nsmskbU56WHbr"}
-{"country":"Brazil","year":"2017","du-population":"207,900,000","du-dead":"5.5","du-dependence-perc":"1.06","du-daly":"276.1","_id":"93AF7toZOAtBtXvq"}
-{"country":"Mexico","year":"2017","du-population":"129,200,000","du-dead":"5.09","du-dependence-perc":"0.82","du-daly":"248.29","_id":"b25SnmJ30WzLKzTV"}
-{"country":"Canada","year":"2017","du-population":"36,700,000","du-dead":"7.27","du-dependence-perc":"2.28","du-daly":"756.15","_id":"bnVKDccoXSccVXdN"}
-{"country":"Greenland","year":"2017","du-population":"56,000,000","du-dead":"13.93","du-dependence-perc":"1.99","du-daly":"480.89","_id":"y2sw2xTyipBtcZDg"}
-{"country":"Italy","year":"2017","du-population":"60,500,000","du-dead":"1.19","du-dependence-perc":"1.15","du-daly":"257.85","_id":"NZnQzRrcYgm1huj4"}
+{"country":"USA","year":"2017","du-population":"325,400,000","du-dead":"21.99","du-dependence-perc":"3.45","du-daly":"1.695.55","_id":"8esiDmoA7fkktT3b"}
+{"country":"France","year":"2017","du-population":"65,000,000","du-dead":"5.5","du-dependence-perc":"1.18","du-daly":"254.95","_id":"Y79AKQP5feWMt3da"}
+{"country":"Brazil","year":"2017","du-population":"207,900,000","du-dead":"5.5","du-dependence-perc":"1.06","du-daly":"276.1","_id":"YeanX1LmY7ps7Htx"}
+{"country":"Italy","year":"2017","du-population":"60,500,000","du-dead":"1.19","du-dependence-perc":"1.15","du-daly":"257.85","_id":"iMZq4kW58TBXxmoj"}
+{"country":"Spain","year":"2017","du-population":"46,600,000","du-dead":"1.83","du-dependence-perc":"1.47","du-daly":"249.83","_id":"o6eA038EJa6Bqty8"}
+{"country":"United Kingdom","year":"2017","du-population":"66,200,000","du-dead":"6.98","du-dependence-perc":"1.66","du-daly":"527.75","_id":"ozNmJtJhDJApJeiy"}
+{"country":"Germany","year":"2017","du-population":"83,100,000","du-dead":"6.7","du-dependence-perc":"1.66","du-daly":"241.92","_id":"pfx5d0M4p7O6VvDA"}
+{"country":"Mexico","year":"2017","du-population":"129,200,000","du-dead":"5.09","du-dependence-perc":"0.82","du-daly":"248.29","_id":"v0q0LTYNICmBYOfn"}
+{"country":"Greenland","year":"2017","du-population":"56,000,000","du-dead":"13.93","du-dependence-perc":"1.99","du-daly":"480.89","_id":"xob5LS4u4lTKTkzU"}
+{"country":"Canada","year":"2017","du-population":"36,700,000","du-dead":"7.27","du-dependence-perc":"2.28","du-daly":"756.15","_id":"xypTmCx1po9ERr6w"}
+{"country":"Spain","year":"2017","du-population":"46,600,000","du-dead":"1.83","du-dependence-perc":"1.47","du-daly":"249.83","_id":"a8PFyGuWNQjCVqhp"}
+{"country":"France","year":"2017","du-population":"65,000,000","du-dead":"5.5","du-dependence-perc":"1.18","du-daly":"254.95","_id":"SBtaTbE6Cn8M3GEf"}
+{"country":"Germany","year":"2017","du-population":"83,100,000","du-dead":"6.7","du-dependence-perc":"1.66","du-daly":"241.92","_id":"gG2Q1XDW4dD1Ne5Y"}
+{"country":"United Kingdom","year":"2017","du-population":"66,200,000","du-dead":"6.98","du-dependence-perc":"1.66","du-daly":"527.75","_id":"YktfjZhS7mwEc6CU"}
+{"country":"USA","year":"2017","du-population":"325,400,000","du-dead":"21.99","du-dependence-perc":"3.45","du-daly":"1.695.55","_id":"3zkHh0MOL5Iy7PYY"}
+{"country":"Brazil","year":"2017","du-population":"207,900,000","du-dead":"5.5","du-dependence-perc":"1.06","du-daly":"276.1","_id":"Z1zJElZJBNIUFTLI"}
+{"country":"Mexico","year":"2017","du-population":"129,200,000","du-dead":"5.09","du-dependence-perc":"0.82","du-daly":"248.29","_id":"2uDhG12t98NdIkQi"}
+{"country":"Canada","year":"2017","du-population":"36,700,000","du-dead":"7.27","du-dependence-perc":"2.28","du-daly":"756.15","_id":"lMBAhf2OKYcDVA6O"}
+{"country":"Greenland","year":"2017","du-population":"56,000,000","du-dead":"13.93","du-dependence-perc":"1.99","du-daly":"480.89","_id":"FIgmNk7BC16SaSdM"}
+{"country":"Italy","year":"2017","du-population":"60,500,000","du-dead":"1.19","du-dependence-perc":"1.15","du-daly":"257.85","_id":"fQyCwqeVxyVoblLa"}
