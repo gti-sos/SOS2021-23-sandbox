@@ -19,7 +19,7 @@ function elementExists(obj, obj_t) {
 	}
 }
 
-var unemployment_stats = [
+var du_stats = [
     {
    "country": "Spain",
    "year": "2017",
@@ -296,4 +296,4 @@ var unemployment_stats = [
 		  }
 	  })
     });
-}
+ };
