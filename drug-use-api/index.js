@@ -23,82 +23,82 @@ var du_stats = [
     {
    "country": "Spain",
    "year": "2017",
-   "du-population": "46,600,000",
-   "du-dead": "1.83",
-   "du-dependence-perc": "1.47",
-   "du-daly": "249.83"
+   "dupopulation": "46,600,000",
+   "dudead": "1.83",
+   "dudependenceperc": "1.47",
+   "dudaly": "249.83"
  },
  {
    "country": "France",
    "year": "2017",
-   "du-population": "65,000,000",
-   "du-dead": "5.5",
-   "du-dependence-perc": "1.18",
-   "du-daly": "254.95"
+   "dupopulation": "65,000,000",
+   "dudead": "5.5",
+   "dudependenceperc": "1.18",
+   "dudaly": "254.95"
  },
  {
    "country": "Germany",
    "year": "2017",
-   "du-population": "83,100,000",
-   "du-dead": "6.7",
-   "du-dependence-perc": "1.66",
-   "du-daly": "241.92"
+   "dupopulation": "83,100,000",
+   "dudead": "6.7",
+   "dudependenceperc": "1.66",
+   "dudaly": "241.92"
  },
  {
    "country": "United Kingdom",
    "year": "2017",
-   "du-population": "66,200,000",
-   "du-dead": "6.98",
-   "du-dependence-perc": "1.66",
-   "du-daly": "527.75"
+   "dupopulation": "66,200,000",
+   "dudead": "6.98",
+   "dudependenceperc": "1.66",
+   "dudaly": "527.75"
  },
  {
    "country": "USA",
    "year": "2017",
-   "du-population": "325,400,000",
-   "du-dead": "21.99",
-   "du-dependence-perc": "3.45",
-   "du-daly": "1.695.55"
+   "dupopulation": "325,400,000",
+   "dudead": "21.99",
+   "dudependenceperc": "3.45",
+   "dudaly": "1.695.55"
  },
  {
    "country": "Brazil",
    "year": "2017",
-   "du-population": "207,900,000",
-   "du-dead": "5.5",
-   "du-dependence-perc": "1.06",
-   "du-daly": "276.1"
+   "dupopulation": "207,900,000",
+   "dudead": "5.5",
+   "dudependenceperc": "1.06",
+   "dudaly": "276.1"
  },
  {
   "country": "Mexico",
    "year": "2017",
-   "du-population": "129,200,000",
-   "du-dead": "5.09",
-   "du-dependence-perc": "0.82",
-   "du-daly": "248.29"
+   "dupopulation": "129,200,000",
+   "dudead": "5.09",
+   "dudependenceperc": "0.82",
+   "dudaly": "248.29"
  },
  {
    "country": "Canada",
    "year": "2017",
-   "du-population": "36,700,000",
-   "du-dead": "7.27",
-   "du-dependence-perc": "2.28",
-   "du-daly": "756.15"
+   "dupopulation": "36,700,000",
+   "dudead": "7.27",
+   "dudependenceperc": "2.28",
+   "dudaly": "756.15"
  },
  {
    "country": "Greenland",
    "year": "2017",
-   "du-population": "56,000,000",
-   "du-dead": "13.93",
-   "du-dependence-perc": "1.99",
-   "du-daly": "480.89"
+   "dupopulation": "56,000,000",
+   "dudead": "13.93",
+   "dudependenceperc": "1.99",
+   "dudaly": "480.89"
  },
  {
   "country": "Italy",
    "year": "2017",
-   "du-population": "60,500,000",
-   "du-dead": "1.19",
-   "du-dependence-perc": "1.15",
-   "du-daly": "257.85"
+   "dupopulation": "60,500,000",
+   "dudead": "1.19",
+   "dudependenceperc": "1.15",
+   "dudaly": "257.85"
  }
 ];
 
