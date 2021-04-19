@@ -195,7 +195,7 @@ var du_stats = [
 				var duToSend = duInDB.map((c)=>{
 					return {country : c.country, year : c.year, dupopulation : c.dupopulation, dudead : c.dudead, dudependenceperc : c.dudependenceperc, dudaly : c.dudaly};
 				});
-				res.send(JSON.stringify(employsToSend,null,2));
+				res.send(JSON.stringify(duToSend,null,2));
 			}
 			
 		})
