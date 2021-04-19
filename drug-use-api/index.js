@@ -241,7 +241,7 @@ var du_stats = [
 			|| !updateddu['dudaly'] 
 			|| country != updateddu.country 
 			|| year != updateddu.year
-			|| Object.keys(updateddu).length != 5){
+			|| Object.keys(updateddu).length != 6){
 	
 			console.log("Missing any field");
 			return res.sendStatus(400);
