@@ -1,0 +1,594 @@
+{
+	"info": {
+		"_postman_id": "a21e429b-aeb1-4fb7-832f-7ae432787f87",
+		"name": "D01 Entrega",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET del principio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/loadInitialData",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"BORMUJOS\",\r\n\"year\": \"2017\",\r\n\"dupopulation\": \"46,600,000\",\r\n\"dudead\": \"1.83\",\r\n\"dudependenceperc\": \"1.47\",\r\n\"dudaly\": \"249.83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nuevo Post Conflicto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 created\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"BORMUJOS\",\r\n\"year\": \"2017\",\r\n\"dupopulation\": \"46,600,000\",\r\n\"dudead\": \"1.83\",\r\n\"dudependenceperc\": \"1.47\",\r\n\"dudaly\": \"249.83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Numero de campos incorrecto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400 created\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Torremolinos\",\r\n\"year\": \"2017\",\r\n\"dupopulation\": \"46,600,000\",\r\n\"dudead\": \"1.83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 created\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET despues de DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404 created\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT CON ERROR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405 created\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST CON ERROR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405 created\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/BORMUJOS/2017",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						"BORMUJOS",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoadInitialData Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/loadInitialData",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PAGINACIÃ“N",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 created\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats?limit=1&offset=9&date=2017",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "9"
+						},
+						{
+							"key": "date",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BÃšSQUEDA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 created\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats?country=Canada&withYear=true\n",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Canada"
+						},
+						{
+							"key": "withYear",
+							"value": "true\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.158.53.146:58015/api/v1/du-stats/",
+					"protocol": "http",
+					"host": [
+						"18",
+						"158",
+						"53",
+						"146"
+					],
+					"port": "58015",
+					"path": [
+						"api",
+						"v1",
+						"du-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
